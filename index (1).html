@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Translator Pro</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+color:black;
+padding:30px;
+border-radius:10px;
+width:60%;
+margin:auto;
+box-shadow:0px 10px 30px rgba(0,0,0,0.4);
+}
+
+textarea{
+width:90%;
+height:120px;
+padding:10px;
+font-size:16px;
+border-radius:6px;
+border:1px solid gray;
+}
+
+button{
+background:#007bff;
+color:white;
+padding:12px 30px;
+border:none;
+border-radius:6px;
+font-size:18px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#f4f4f4;
+border-radius:6px;
+}
+
+.flag{
+font-size:28px;
+}
+
+.warning{
+color:red;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🌍 AI Translator Pro</h1>
+
+<div class="container">
+
+<form method="post">
+
+<textarea name="text" placeholder="Enter English text"></textarea>
+
+<br>
+
+<button type="submit">Translate</button>
+
+</form>
+
+{% if hf %}
+
+<div class="result">
+
+<h3 class="flag">🤖 AI Translation 🇩🇪</h3>
+
+<p>{{hf}}</p>
+
+</div>
+
+<div class="result">
+
+<h3 class="flag">🌐 Google Translation 🇩🇪</h3>
+
+<p>{{google}}</p>
+
+</div>
+
+<div class="result">
+
+<h3>Accuracy Score</h3>
+
+<p>{{score}} %</p>
+
+{% if flag %}
+
+<p class="warning">🚩 Translation may be inaccurate</p>
+
+{% else %}
+
+<p style="color:green">✅ Translation looks accurate</p>
+
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
